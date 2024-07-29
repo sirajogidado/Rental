@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Rental Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>House Rental Management System</h1>
+        <nav>
+            <ul>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#houses">Houses</a></li>
+                <li><a href="#tenants">Tenants</a></li>
+                <li><a href="#payments">Payments</a></li>
+                <li><a href="#reports">Reports</a></li>
+                <li><a href="#users">Users</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="dashboard">
+            <h2>Dashboard</h2>
+            <div class="stats">
+                <div class="stat">
+                    <h3>Total Houses</h3>
+                    <p id="totalHouses">0</p>
+                </div>
+                <div class="stat">
+                    <h3>Total Tenants</h3>
+                    <p id="totalTenants">0</p>
+                </div>
+                <div class="stat">
+                    <h3>Recent Payments</h3>
+                    <p id="recentPayments">0</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="houses">
+            <h2>Manage Houses</h2>
+            <button onclick="showModal('houseModal')">Add House</button>
+            <div id="housesList">
+                <!-- List of houses will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <section id="tenants">
+            <h2>Manage Tenants</h2>
+            <button onclick="showModal('tenantModal')">Add Tenant</button>
+            <div id="tenantsList">
+                <!-- List of tenants will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <section id="payments">
+            <h2>Manage Payments</h2>
+            <button onclick="showModal('paymentModal')">Add Payment</button>
+            <div id="paymentsList">
+                <!-- List of payments will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <section id="reports">
+            <h2>Reports</h2>
+            <button onclick="generateReport()">Generate Report</button>
+            <div id="reportsList">
+                <!-- Reports will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <section id="users">
+            <h2>Manage Users</h2>
+            <button onclick="showModal('userModal')">Add User</button>
+            <div id="usersList">
+                <!-- List of users will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Structure -->
+    <div id="houseModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('houseModal')">&times;</span>
+            <h2>Add House</h2>
+            <form id="houseForm">
+                <label for="houseType">House Type</label>
+                <input type="text" id="houseType" name="houseType" required>
+                <label for="houseLocation">Location</label>
+                <input type="text" id="houseLocation" name="houseLocation" required>
+                <label for="houseRent">Rent</label>
+                <input type="number" id="houseRent" name="houseRent" required>
+                <button type="submit">Add House</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="tenantModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('tenantModal')">&times;</span>
+            <h2>Add Tenant</h2>
+            <form id="tenantForm">
+                <label for="tenantName">Name</label>
+                <input type="text" id="tenantName" name="tenantName" required>
+                <label for="tenantContact">Contact</label>
+                <input type="text" id="tenantContact" name="tenantContact" required>
+                <button type="submit">Add Tenant</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('paymentModal')">&times;</span>
+            <h2>Add Payment</h2>
+            <form id="paymentForm">
+                <label for="paymentTenant">Tenant</label>
+                <input type="text" id="paymentTenant" name="paymentTenant" required>
+                <label for="paymentAmount">Amount</label>
+                <input type="number" id="paymentAmount" name="paymentAmount" required>
+                <button type="submit">Add Payment</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="userModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('userModal')">&times;</span>
+            <h2>Add User</h2>
+            <form id="userForm">
+                <label for="userName">Username</label>
+                <input type="text" id="userName" name="userName" required>
+                <label for="userRole">Role</label>
+                <input type="text" id="userRole" name="userRole" required>
+                <button type="submit">Add User</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
